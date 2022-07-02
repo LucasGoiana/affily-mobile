@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "840336140985",
+    "project_id": "affilly-lucas",
+    "storage_bucket": "affilly-lucas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840336140985:android:fbab05e01266a3f50bc968",
+        "android_client_info": {
+          "package_name": "br.com.fiap.affily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840336140985-norerud3c5j77hpsvvoljr788l4vvb0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCkk8acsiA51ck0pAH96TaZTkCpjYA8OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840336140985-norerud3c5j77hpsvvoljr788l4vvb0d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
