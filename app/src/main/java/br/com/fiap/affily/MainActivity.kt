@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         {
 
             Toast.makeText(this, "Usuário não logado", Toast.LENGTH_LONG).show();
-            //navController.navigate(R.id.logInFragment)
+            setContentView(R.layout.fragment_log_in)
 
         }
         else
