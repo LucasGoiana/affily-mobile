@@ -38,8 +38,8 @@ class SingUpViewModel: ViewModel() {
     }
     private fun saveInFirestore(newUser: NewUser) {
         db.collection("users")
-//.document(FirebaseAuth.getInstance().currentUser?.uid!!)
-            .add(newUser)
+            .document(FirebaseAuth.getInstance().currentUser?.uid!!)
+            .set(newUser)
             .addOnSuccessListener { documentReference ->
                 sendEmailVerification()
             }
