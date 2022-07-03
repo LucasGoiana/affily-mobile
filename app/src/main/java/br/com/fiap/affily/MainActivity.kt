@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.fiap.affily.databinding.ActivityMainBinding
 import br.com.fiap.affily.models.entities.Child
@@ -18,6 +17,8 @@ import br.com.fiap.affily.ui.base.auth.BaseAuthViewModel
 import br.com.fiap.affily.ui.newchild.NewChildActivity
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
+
+import androidx.fragment.app.FragmentTransaction
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,36 +32,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fullScreen()
-        var mAuth = FirebaseAuth.getInstance();
-        var  mUser = mAuth.getCurrentUser();
         binding = ActivityMainBinding.inflate(layoutInflater)
-
-        if(mUser == null)
-        {
-
-            Toast.makeText(this, "Usuário não logado", Toast.LENGTH_LONG).show();
-            setContentView(R.layout.fragment_log_in)
-
-        }
-        else
-        {
-            setContentView(binding.root)
-            Toast.makeText(this, "Usuário logado", Toast.LENGTH_LONG).show();
-        }
-
-
-
-
-
+        setContentView(binding.root)
         setUpRecyclerView()
         initViewModel()
         initObserver()
         initListeners()
-
-
-     }
-
+    }
     private fun initListeners() {
         binding.fabNewProduct.setOnClickListener{
             val nextScreen = Intent(this, NewChildActivity::class.java)
