@@ -6,5 +6,5 @@ import br.com.fiap.affily.ui.base.auth.BaseAuthFragment
 class ItemFragment : BaseAuthFragment() {
 
     override val layout: Int
-        get() = R.layout.fragment_item_list
+        get() = R.layout.child_item
 }
