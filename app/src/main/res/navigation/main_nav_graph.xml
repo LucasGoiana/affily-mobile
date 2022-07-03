@@ -3,31 +3,43 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main_nav_graph">
+android:id="@+id/main_nav_graph"
+    app:startDestination="@id/childrenFragment">
 
 <fragment
         android:id="@+id/signUpFragment"
         android:name="br.com.fiap.affily.ui.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="https://www.calculaflex.com.br/signup" />
+    <action
+        android:id="@+id/action_signUpFragment_to_childrenFragment"
+        app:destination="@id/childrenFragment" />
 </fragment>
-
-    <fragment
-        android:id="@+id/itemFrahment"
-        android:name="br.com.fiap.affily.ui.child.ItemFragment"
-        android:label="SignUpFragment"
-        tools:layout="@layout/fragment_item_list">
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="https://www.calculaflex.com.br/signup" />
-    </fragment>
 
     <fragment
     android:id="@+id/logInFragment"
     android:name="br.com.fiap.affily.ui.login.LogInFragment"
     android:label="LogInFragment"
-    tools:layout="@layout/fragment_log_in" />
+    tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_childrenFragment"
+            app:destination="@id/childrenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/childrenFragment"
+        android:name="br.com.fiap.affily.ui.child.ChildrenFragment"
+        android:label="ChildrenFragment"
+        tools:layout="@layout/fragment_children" >
+        <action
+            android:id="@+id/action_childrenFragment_to_newChildFragment"
+            app:destination="@id/newChildFragment"
+            app:popUpTo="@id/childrenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newChildFragment"
+        android:name="br.com.fiap.affily.ui.child.NewChildFragment"
+        android:label="NewChildFragment" />
 </navigation>
