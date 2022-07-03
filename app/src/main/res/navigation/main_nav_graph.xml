@@ -41,5 +41,22 @@ android:id="@+id/main_nav_graph"
     <fragment
         android:id="@+id/newChildFragment"
         android:name="br.com.fiap.affily.ui.child.NewChildFragment"
-        android:label="NewChildFragment" />
+        android:label="NewChildFragment"
+        tools:layout="@layout/fragment_new_child" >
+        <argument
+            android:name="idPais"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="nome"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

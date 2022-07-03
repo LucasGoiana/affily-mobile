@@ -9,8 +9,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ChildrenViewModel: ViewModel() {
+
+
     private var mAuth: FirebaseAuth =
         FirebaseAuth.getInstance()
+
+
+
 
     val newChildState = MutableLiveData<RequestState<Children>>()
 
@@ -26,7 +31,9 @@ class ChildrenViewModel: ViewModel() {
         docRef.get().addOnSuccessListener {
             val childs = ArrayList<Children>()
             for (item in it.documents) {
-                val child = Children(idPais = mAuth.currentUser?.uid ?: "")
+                val child = Children(null,null,null)
+                child.id = item.data!!["id"] as String
+                child.idPais = item.data!!["idPais"] as String
                 child.nome = item.data!!["nome"] as String
                 childs.add(child)
             }

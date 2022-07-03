@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.affily.models.entities.Children
+import br.com.fiap.affily.ui.child.ChildrenFragment
 
-class MainListAdapter(
+class ChildListAdapter(
     var list: List<Children>,
     var onItemClickListener: OnItemClickListener
 ): RecyclerView.Adapter<ChildrenViewHolder>() {

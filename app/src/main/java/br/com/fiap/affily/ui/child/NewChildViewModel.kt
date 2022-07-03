@@ -7,6 +7,7 @@ import br.com.fiap.affily.models.RequestState
 import br.com.fiap.affily.models.entities.Child
 import br.com.fiap.affily.models.entities.Children
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 class NewChildViewModel: ViewModel() {
@@ -17,12 +18,41 @@ class NewChildViewModel: ViewModel() {
 
     private val db = FirebaseFirestore.getInstance()
 
-    fun saveNewChild(nomeCrianca: String) {
-        var child = Children(idPais = mAuth.currentUser?.uid ?: "", nome = nomeCrianca)
+    fun saveOrUpdateChild(child: Children) {
+        if(child.id !== null){
+            update(child)
+        }else {
+            save(child)
+        }
+
+    }
+    fun update(child: Children) {
+
 
 
         db.collection("children")
-            .add(child)
+            .document(child.id.toString())
+            .set(child)
+            .addOnSuccessListener { documentReference ->
+                newChildState.value =
+                    RequestState.Success(child)
+            }
+            .addOnFailureListener { e ->
+                newChildState.value = RequestState.Error(
+                    Throwable(e.message)
+                )
+            }
+    }
+
+    fun save(child: Children) {
+        var ref = db.collection("children").document()
+
+        var child = Children(id = ref.id, idPais = mAuth.currentUser?.uid ?: "", nome = child.nome)
+
+
+        db.collection("children")
+            .document(child.id.toString())
+            .set(child)
             .addOnSuccessListener { documentReference ->
                 newChildState.value =
                     RequestState.Success(child)
