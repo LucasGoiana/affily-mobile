@@ -28,7 +28,7 @@ Essa area filho vai permitir que ele gerencie a vida de seu filhos e posteriomen
  - Cadastro de informações dos tutelados ( data de aniversario, alergias e etc..)
 
 # Solução
-![desenho solucao](https://github.com/LucasGoiana/affily-mobile/blob/main/solucao.jpg)
+![desenho solucao](https://github.com/LucasGoiana/affily-mobile/blob/master/solucao.jpg)
 
 
 
