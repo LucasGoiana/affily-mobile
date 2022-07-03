@@ -1,5 +1,6 @@
 package br.com.fiap.affily.ui.child
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.fiap.affily.models.RequestState
@@ -32,6 +33,7 @@ class NewChildViewModel: ViewModel() {
                 )
             }
     }
+
 
 
 }

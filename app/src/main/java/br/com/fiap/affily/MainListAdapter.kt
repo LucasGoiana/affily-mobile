@@ -2,32 +2,35 @@ package br.com.fiap.affily
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
-import br.com.fiap.affily.databinding.ChildItemBinding
-import br.com.fiap.affily.models.entities.Child
+import br.com.fiap.affily.models.entities.Children
 
-class MainListAdapter : RecyclerView.Adapter<MainListAdapter.ViewHolder>(){
-    inner class ViewHolder(val  biding: ChildItemBinding) :
-            RecyclerView.ViewHolder(biding.root)
+class MainListAdapter(
+    var list: List<Children>,
+    var onItemClickListener: OnItemClickListener
+): RecyclerView.Adapter<ChildrenViewHolder>() {
 
-    private var child = emptyList<Child>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val biding = ChildItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(biding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildrenViewHolder {
+        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.child_item, parent, false)
+        return ChildrenViewHolder(inflater)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(holder){
-            biding.tvProduct.text = child[position].nome
+    override fun onBindViewHolder(holder: ChildrenViewHolder, position: Int) {
+        val item = list[position]
+        holder.bindItem(item)
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onClick(item, position)
         }
+//        holder.itemView.findViewById<Button>(R.id.delete).setOnClickListener {
+//            onItemClickListener.onDelete(item, position)
+//        }
     }
 
-    fun setChild(childs: List<Child>){
-        this.child = childs
-        notifyDataSetChanged()
-    }
-    override fun getItemCount(): Int {
-        return child.size
+    override fun getItemCount(): Int = list.size
+
+    interface OnItemClickListener {
+        fun onClick(item: Children, position: Int)
+        fun onDelete(item: Children, position: Int)
     }
 }

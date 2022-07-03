@@ -1,9 +1,42 @@
 package br.com.fiap.affily.ui.child
 
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.fiap.affily.models.RequestState
+import br.com.fiap.affily.models.entities.Children
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
-class ChildrenViewModel  : ViewModel() {
+class ChildrenViewModel: ViewModel() {
+    private var mAuth: FirebaseAuth =
+        FirebaseAuth.getInstance()
 
+    val newChildState = MutableLiveData<RequestState<Children>>()
+
+    private val db = FirebaseFirestore.getInstance()
+
+    val getListLiveData: MutableLiveData<List<Children>> by lazy {
+        MutableLiveData<List<Children>>()
+    }
+
+
+    fun getList() {
+        val docRef = db.collection("children")
+        docRef.get().addOnSuccessListener {
+            val childs = ArrayList<Children>()
+            for (item in it.documents) {
+                val child = Children(idPais = mAuth.currentUser?.uid ?: "")
+                child.nome = item.data!!["nome"] as String
+                childs.add(child)
+            }
+
+            getListLiveData.postValue(childs)
+        }.addOnFailureListener {
+            Log.d("get", it.localizedMessage!!)
+            getListLiveData.postValue(null)
+        }
+    }
 
 
 
