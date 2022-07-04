@@ -1,4 +1,4 @@
-package br.com.fiap.affily.ui.child
+package br.com.fiap.affily.ui.newchild
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import br.com.fiap.affily.R
 import br.com.fiap.affily.models.RequestState
-import br.com.fiap.affily.models.entities.Child
 import br.com.fiap.affily.models.entities.Children
 import br.com.fiap.affily.ui.base.auth.BaseAuthFragment
 
@@ -81,6 +80,21 @@ class NewChildFragment : BaseAuthFragment() {
                     showMessage(it.throwable.message)
                 }
                 is RequestState.Loading -> showLoading("Cadastrando a criança")
+            }
+        })
+        this.newChildViewModel.updateChildState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is RequestState.Success -> {
+                    hideLoading()
+                    showMessage("Criança atualizada com sucesso!")
+                    R.layout.child_item
+                    //ToDo - Voltar para tela de listagem de criança
+                }
+                is RequestState.Error -> {
+                    hideLoading()
+                    showMessage(it.throwable.message)
+                }
+                is RequestState.Loading -> showLoading("Atualizando informações da criança")
             }
         })
     }

@@ -1,13 +1,10 @@
-package br.com.fiap.affily.ui.child
+package br.com.fiap.affily.ui.newchild
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.fiap.affily.models.RequestState
-import br.com.fiap.affily.models.entities.Child
 import br.com.fiap.affily.models.entities.Children
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 class NewChildViewModel: ViewModel() {
@@ -15,6 +12,8 @@ class NewChildViewModel: ViewModel() {
         FirebaseAuth.getInstance()
 
     val newChildState = MutableLiveData<RequestState<Children>>()
+
+    val updateChildState = MutableLiveData<RequestState<Children>>()
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -34,11 +33,11 @@ class NewChildViewModel: ViewModel() {
             .document(child.id.toString())
             .set(child)
             .addOnSuccessListener { documentReference ->
-                newChildState.value =
+                updateChildState.value =
                     RequestState.Success(child)
             }
             .addOnFailureListener { e ->
-                newChildState.value = RequestState.Error(
+                updateChildState.value = RequestState.Error(
                     Throwable(e.message)
                 )
             }
