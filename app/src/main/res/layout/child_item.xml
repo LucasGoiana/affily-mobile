@@ -16,7 +16,7 @@
         android:id="@+id/excluir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="-10dp"
         android:background="@drawable/button_selector"
         android:text="Salvar"
         android:layout_marginBottom="5dp"
@@ -25,7 +25,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#ffffff"/>
+        android:background="@drawable/button_selector"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvList"
         android:layout_width="match_parent"
