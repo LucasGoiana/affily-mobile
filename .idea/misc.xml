@@ -8,14 +8,16 @@
         <entry key="app/src/main/res/drawable/ic_logo_login.xml" value="0.13" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/activity_new_child.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/child_item.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/layout/child_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_better_fuel.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/fragment_children.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_item.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_log_in.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_new_child.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/include_loading.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/main_line_view.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.159" />
       </map>
     </option>
