@@ -56,7 +56,7 @@ ou
 
 ### Dependências
 
- - Firabase
+ - Firebase
  - Libs
 
 ### Firebase
