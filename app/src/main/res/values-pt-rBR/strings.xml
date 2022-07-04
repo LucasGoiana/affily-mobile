@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Afilly</string>
+    <string name="home_select_options">Selecione a opcão</string>
+    <string name="menu_home_profile">Perfil</string>
+    <string name="label_username">Seu nome</string>
+    <string name="label_phone">Telefone</string>
+    <string name="label_email">E-mail</string>
+    <string name="label_password">Senha</string>
+    <string name="label_accept_terms">Li e aceito os termos</string>
+    <string name="label_terms">Termos de uso</string>
+    <string name="label_create_account">Criar minha conta</string>
+    <string name="label_reset_password">Esqueci minha senha</string>
+    <string name="logo_app_content_desc">Logo aplicativo</string>
+    <string name="button_login">Conectar-se</string>
+    <string name="button_create_account">Criar conta</string>
+    <string name="button_i_have_account">Já tenho conta</string>
+    <string name="login_subtitle">Conectar-se para continuar</string>
+    <string name="signup_subtitle">Preencha os dados da sua conta</string>
+    <string name="label_better_fuel_subtitle">Descubra o melhor custo/benefício</string>
+    <string name="label_car">Veículo</string>
+    <string name="label_km_gasoline">Km/L Gasolina</string>
+    <string name="menu_home_home">Iniciar</string>
+    <string name="label_km_ethanol">Km/L Etanol</string>
+    <string name="label_price_gasoline">Preço gasolina</string>
+    <string name="label_price_ethanol">Preço álcool</string>
+    <string name="label_gas_station">Posto de gasolina</string>
+    <string name="label_average_consumption">Consumo médio</string>
+    <string name="label_calculate">Descobrir melhor combustível</string>
+    <string name="hello_blank_fragment">Olá fragmento em branco</string>
+    <string name="label_clear">Limpar dados</string>
+    <string name="loading_message_processing">Carregando</string>
+    <string name="default_notification_channel_name">Padrão</string>
+    <string name="default_notification_channel_description">Canal padrão de notificações</string>
+    <string name="default_notification_channel_id">Predefinido</string>
+</resources>

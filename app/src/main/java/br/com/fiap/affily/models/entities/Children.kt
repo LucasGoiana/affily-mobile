@@ -1,9 +1,9 @@
 package br.com.fiap.affily.models.entities
 
 data class Children (
-
+    var id: String? = null,
     var idPais: String? = null,
-    val nome: String
+    var nome: String? = null
 
 
 )

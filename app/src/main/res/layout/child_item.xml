@@ -12,4 +12,24 @@
         android:textSize="16sp"
         android:padding="16dp"
         tools:text="Produto" />
+    <Button
+        android:id="@+id/excluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_selector"
+        android:text="Salvar"
+        android:layout_marginBottom="5dp"
+        android:textColor="#FFF" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#ffffff"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/main_line_view"
+        />
 </LinearLayout>
