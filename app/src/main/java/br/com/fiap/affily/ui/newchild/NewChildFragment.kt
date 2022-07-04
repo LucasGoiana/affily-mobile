@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import br.com.fiap.affily.R
 import br.com.fiap.affily.models.RequestState
@@ -72,7 +73,7 @@ class NewChildFragment : BaseAuthFragment() {
                 is RequestState.Success -> {
                     hideLoading()
                     showMessage("Criança cadastrada com sucesso")
-                    R.layout.child_item
+                    findNavController().navigate(R.id.childrenFragment)
                     //ToDo - Voltar para tela de listagem de criança
                 }
                 is RequestState.Error -> {
@@ -87,7 +88,7 @@ class NewChildFragment : BaseAuthFragment() {
                 is RequestState.Success -> {
                     hideLoading()
                     showMessage("Criança atualizada com sucesso!")
-                    R.layout.child_item
+                    findNavController().navigate(R.id.childrenFragment)
                     //ToDo - Voltar para tela de listagem de criança
                 }
                 is RequestState.Error -> {

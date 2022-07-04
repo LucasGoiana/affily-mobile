@@ -25,6 +25,10 @@ class ChildrenViewModel: ViewModel() {
         MutableLiveData<List<Children>>()
     }
 
+    val deleteLiveData: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
 
     fun getList() {
         val docRef = db.collection("children")
@@ -42,6 +46,16 @@ class ChildrenViewModel: ViewModel() {
         }.addOnFailureListener {
             Log.d("get", it.localizedMessage!!)
             getListLiveData.postValue(null)
+        }
+    }
+
+    fun delete(id: String) {
+        val docRef = db.collection("children")
+        docRef.document(id).delete().addOnSuccessListener {
+            deleteLiveData.postValue(true)
+        }.addOnFailureListener {
+            Log.d("delete", it.localizedMessage!!)
+            deleteLiveData.postValue(false)
         }
     }
 

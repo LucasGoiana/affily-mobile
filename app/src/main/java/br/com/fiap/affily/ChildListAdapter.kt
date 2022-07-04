@@ -23,9 +23,9 @@ class ChildListAdapter(
         holder.itemView.setOnClickListener {
             onItemClickListener.onClick(item, position)
         }
-//        holder.itemView.findViewById<Button>(R.id.delete).setOnClickListener {
-//            onItemClickListener.onDelete(item, position)
-//        }
+        holder.itemView.findViewById<Button>(R.id.excluir).setOnClickListener {
+            onItemClickListener.onDelete(item, position)
+        }
     }
 
     override fun getItemCount(): Int = list.size

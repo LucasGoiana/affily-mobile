@@ -33,9 +33,6 @@ class ChildrenFragment: BaseAuthFragment(), ChildListAdapter.OnItemClickListener
     private lateinit var rvList: RecyclerView
 
 
-    private lateinit var childListAdapter: ChildListAdapter
-    private var selected: Children = Children()
-
     private val childrenViewModel: ChildrenViewModel by viewModels()
 
 
@@ -58,13 +55,19 @@ class ChildrenFragment: BaseAuthFragment(), ChildListAdapter.OnItemClickListener
 //            onUpdate(it)
 //        })
 
-//        productViewModel.deleteLiveData.observe(this, {
-//            onDelete(it)
-//        })
+        childrenViewModel.deleteLiveData.observe(viewLifecycleOwner, {
+            onDelete(it)
+        })
 
 
         childrenViewModel.getListLiveData.observe(viewLifecycleOwner) {
             onGetList(it)
+        }
+    }
+
+    private fun onDelete(it: Boolean) {
+        if (it) {
+            childrenViewModel.getList()
         }
     }
 
@@ -102,7 +105,7 @@ class ChildrenFragment: BaseAuthFragment(), ChildListAdapter.OnItemClickListener
     }
 
     override fun onDelete(item: Children, position: Int) {
-        TODO("Not yet implemented")
+        childrenViewModel.delete(item.id.toString())
     }
 
 }
